@@ -5,6 +5,7 @@ import 'package:animal_app/components/centered_message.dart';
 import 'package:animal_app/components/progress.dart';
 import 'package:animal_app/components/response_dialog.dart';
 import 'package:animal_app/dao/animal_identified_dao.dart';
+import 'package:animal_app/file/file.dart';
 import 'package:animal_app/http/exception/not_found_exception.dart';
 import 'package:animal_app/http/webclients/classification_webclient.dart';
 import 'package:animal_app/model/animal.dart';
@@ -22,6 +23,7 @@ class Identifies extends StatelessWidget {
   bool _itWasIdentified = false;
   String _label = '';
   String _name = '';
+  String popularNames = '';
 
   Identifies(this._imagePath, {Key? key}) : super(key: key);
 
@@ -41,6 +43,9 @@ class Identifies extends StatelessWidget {
                 Animal animal = snapshot.data!;
                 _label = animal.label;
                 _name = animal.species;
+                if(animal.species.isEmpty){
+                  _name =  animal.genre;
+                }
                 _itWasIdentified = true;
                 return Information(animal);
               }

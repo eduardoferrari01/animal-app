@@ -1,11 +1,9 @@
 import 'package:animal_app/components/centered_message.dart';
 import 'package:animal_app/components/progress.dart';
 import 'package:animal_app/dao/animal_identified_dao.dart';
-import 'package:animal_app/model/animal.dart';
 import 'package:animal_app/model/animal_identified.dart';
-import 'package:animal_app/screens/information/information.dart';
 import 'package:flutter/material.dart';
-
+import 'dart:io';
 import 'identifies_find.dart';
 
 const capturaImagemButtonText = 'Identificar';
@@ -59,7 +57,6 @@ class _Identifie_listState extends State<Identifie_list> {
   }
 }
 
-//Alterar o nome para card
 class AnimalCard extends StatelessWidget {
   final AnimalIdentified animalIdentified;
 
@@ -74,7 +71,7 @@ class AnimalCard extends StatelessWidget {
         children: [
           Padding(
             padding: const EdgeInsets.all(8.0),
-            child: Image.asset(animalIdentified.imagePath),
+            child: Image.file(File(animalIdentified.imagePath),  height: 190, width: double.infinity, fit: BoxFit.cover),
           ),
           Padding(
             padding: const EdgeInsets.all(8.0),
@@ -91,7 +88,7 @@ class AnimalCard extends StatelessWidget {
                       builder: (context) => IdentifiesFind(animalIdentified.label)   ,
                     ));
                   },
-                  icon: Icon(Icons.tab),
+                  icon: const Icon(Icons.tab),
                 )
               ],
             ),
