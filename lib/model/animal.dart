@@ -4,7 +4,7 @@ class Animal {
   final String conservationState;
   final String antivenom;
   final String etymology;
-  final bool venomous;
+  final String venomous;
   final String species;
   final String family;
   final String genre;
@@ -12,7 +12,7 @@ class Animal {
   final String habitat;
   final String urlImage;
   final String accidentSymptom;
-  final bool canCauseSeriousAccident;
+  final String canCauseSeriousAccident;
   final String characteristics;
 
   Animal(this.label, this.popularNames, this.conservationState, this.antivenom, this.etymology, this.venomous, this.species,
@@ -34,41 +34,6 @@ class Animal {
         accidentSymptom = json['accidentSymptom'],
         canCauseSeriousAccident = json['canCauseSeriousAccident'],
         characteristics = json['characteristics'];
-
-  String getConservationState() {
-    String conservationStateStr = '';
-
-    switch (conservationState) {
-      case 'EX':
-        conservationStateStr = 'Extinta';
-        break;
-      case 'EW':
-        conservationStateStr = 'Extinta na natureza';
-        break;
-      case 'CR':
-        conservationStateStr = 'Criticamente em perigo';
-        break;
-      case 'EN':
-        conservationStateStr = 'Em perigo';
-        break;
-      case 'VU':
-        conservationStateStr = 'Vulnerável';
-        break;
-      case 'NT':
-        conservationStateStr = 'Quase ameaçada';
-        break;
-      case 'LC':
-        conservationStateStr = 'Pouco preocupante';
-        break;
-      case 'DD':
-        conservationStateStr = 'Dados Deficientes';
-        break;
-      case 'NE':
-        conservationStateStr = 'Não avaliada';
-        break;
-    }
-    return conservationStateStr;
-  }
 
   @override
   String toString() {
