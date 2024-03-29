@@ -7,7 +7,7 @@ import 'dart:convert';
 import 'dart:developer';
 
 //const String baseUrl = 'https://information-api.herokuapp.com/api/snake/information';
-const String baseUrl = 'http://192.168.0.108:8080/api/snake/information';
+const String baseUrl = 'http://192.168.0.109:8080/api/animal/information';
 const timeout = 5;
 
 class IdentifiesWebClient {

@@ -18,30 +18,18 @@ class Information extends StatelessWidget {
           _InformationWidget('Nomes populares', _animal.popularNames),
           _InformationWidget('Família', _animal.family),
           _InformationWidget('Genero', _animal.genre),
-          _InformationWidget('Peçonhenta/Venenosa', _animal.venomous ? 'Sim' : 'Não'),
-          _InformationWidget('Pode causar acidente grave', _getTextCanCauseSeriousAccident(_animal)),
+          _InformationWidget('Peçonhenta/Venenosa', _animal.venomous),
+          _InformationWidget('Pode causar acidente grave', _animal.canCauseSeriousAccident),
           _InformationWidget('Sintomas do acidente', _animal.accidentSymptom),
           _InformationWidget('Tratamento específico', _animal.antivenom),
           _InformationWidget('Dentição', _animal.dentition),
           _InformationWidget('Hábitat', _animal.habitat),
-          _InformationWidget('Status de conservação', _animal.getConservationState()),
+          _InformationWidget('Status de conservação', _animal.conservationState),
           _InformationWidget('Características', _animal.characteristics),
           _InformationWidget('Etimologia', _animal.etymology)
         ],
       ),
     );
-  }
-
-  String _getTextCanCauseSeriousAccident(Animal animal) {
-    if (animal.venomous && animal.canCauseSeriousAccident) {
-      return 'Sim';
-    }
-
-    if ((animal.venomous && !animal.canCauseSeriousAccident)) {
-      return 'Não';
-    }
-
-    return '';
   }
 }
 

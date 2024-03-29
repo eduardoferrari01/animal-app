@@ -6,7 +6,7 @@ import 'package:http/http.dart';
 import '../webclient.dart';
 
 //const String baseUrl = 'https://information-api.herokuapp.com/api/snake/information';
-const String baseUrl = 'http://192.168.0.108:8080/api/snake/information/find';
+const String baseUrl = 'http://192.168.0.109:8080/api/animal/information/find';
 
 class AnimalWebClient {
   Future<Animal> findAnimalByLabel(String label) async {
